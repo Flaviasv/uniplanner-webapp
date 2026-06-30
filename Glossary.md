@@ -93,6 +93,11 @@
 | `registerUser()` | `User user` | Inserts a new user into the database | `boolean` |
 | `loginUser()` | `String username, String password` | Authenticates a user | `User` or `null` |
 | `findByUsername()` | `String username` | Searches for a user by username | `User` or `null` |
+| `findByEmail()` | `String email` | Searches for a user by email | `User` or `null` |
+| `validateUser` | `User user` | Ensures all the fields in the user are correct and will not cause issues | `boolean` |
+| `isValidEmail` | `String email` | checks to make sure the email has an appropriate format | `boolean` |
+| `isBlank` | `String input` | checks for an empty string | `boolean` |
+| `hashPassword` | `String password` | Creates a hash from the password, stores in database and checks against it, no plain text passwords are stored now uses SHA-256 | `String` |
 
 ---
 
@@ -104,5 +109,8 @@
 | `getTasksByUserId()` | `int userId` | Retrieves all tasks for a user (ordered by due date) | `List<Task>` |
 | `updateTask()` | `Task task` | Updates an existing task | `boolean` |
 | `deleteTask()` | `int taskId` | Deletes a task by its ID | `boolean` |
-
+| `validateTask` |`Task task` | checks the fields of task to make sure they are within bounds |`boolean` |
+| `isValidStatus` |`String status` | ensures the status matches one of the presets allowed |`boolean` |
+| `isValidPriority` |`String priority` | works like isValidStatus only for priorities |`boolean` |
+| `isBlank` | `String input` | checks for an empty string | `boolean` |
 ---
